@@ -31,13 +31,26 @@ this.formData = new FormData();
     this.file.uploadFile(this.formData).subscribe(res => { 
       if(res['status']==200){
         this.isUploaded = true
-  this.fileName=res['size']
-   this.fileSize=res['name']
+  this.fileName=res['name']
+   this.fileSize=res['size']
       } else {
         this.isUploaded = false
       }
     }) 
   }
 
+
+  test(){
+    const a = document.createElement('a');
+    document.body.appendChild(a);
+    const blob = new Blob(['Test String'], { type: 'application/vnd.ms-excel' }),
+      url = window.URL.createObjectURL(blob);
+    console.log(navigator);
+      a.href = url;
+      a.download = 'UnitDetails'  + '.xlsx';
+      a.click();
+      window.URL.revokeObjectURL(url);
+    
+  }
 
 }

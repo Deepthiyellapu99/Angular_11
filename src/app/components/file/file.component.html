@@ -1,12 +1,19 @@
 
 
+
 <div class="file-upload">
+    <h2>File Upload:</h2>
     <input type="file" name="file" (change)="onUpload($event)">
     <button type="submit"  (click)="submitForm()">Submit</button>
     
-    <div *ngIf="isUploaded">File upload successful Name:{{this.fileName}} and size:{{this.fileSize}}</div>
-    </div>
+    <div style="color:blue" *ngIf="isUploaded">File upload successful Name:{{this.fileName}} and size:{{this.fileSize}}</div>
+</div>
 
+ 
+<div class="file-download">
+    <h2>File Download:</h2>
+    <button (click)="test()"> Click Here to download </button>
+</div>
 <!-- 
    <powerbi-report
     [embedConfig] = {{
